@@ -17,6 +17,7 @@ type webCrawler struct {
 func (wb *webCrawler)VisitLink(link string)  {
 	
   	wb.log <- fmt.Sprintf("visitando: %s", link)
+	fmt.Println(link)
 
 	resp, err := http.Get(link)
 	if err != nil {
@@ -44,7 +45,7 @@ func (wb *webCrawler)extractLinks(node *html.Node) {
 			}
 			
 			link, err := url.Parse(attr.Val)
-			if err != nil || link.Scheme == "" || link.Scheme == "maito"{
+			if err != nil || link.Scheme == "" || link.Scheme == "mailto" || link.Scheme == "javascript" || link.Scheme == "tel" || link.Scheme == "itmss"{
 				continue
 			}
 
