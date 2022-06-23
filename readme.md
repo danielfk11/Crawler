@@ -30,4 +30,8 @@ para filtrar:
 Para usar o Crawler:
 
     go run main.go --url=https://github.com (URL QUE DESEJA PESQUISAR)
+    
+    
+https://user-images.githubusercontent.com/86691253/175209408-3860f206-429d-4bcd-bf70-43583662fabe.mp4
+
 
