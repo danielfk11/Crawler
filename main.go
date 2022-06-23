@@ -1,7 +1,6 @@
 package main
 
 import (
-	"danielfk11/website"
 	"danielfk11/crawler"
 	"flag"
 	"fmt"
@@ -13,19 +12,12 @@ var(
 )
 
 func init()  {
-	flag.StringVar(&link, "url", "https://aprendagolang.com.br", "url para inicar busca")
-	flag.StringVar(&action, "action", "website", "qual servico iniciar")
+	flag.StringVar(&link, "url", "https://github.com", "url para inicar busca")
 }
 
 func main() {
 	flag.Parse()
 
-	switch *&action{
-	case "website":
-		website.Run()
-
-	case "webcrawler":
-	
 	done := make(chan bool)
 	wb := crawler.New()
 	go wb.VisitLink(link)
@@ -35,8 +27,4 @@ func main() {
 	}
 
 	<-done
-
-	default:
-		fmt.Printf("action '%s' nao foi reconhecida", action)
-	}
 }
